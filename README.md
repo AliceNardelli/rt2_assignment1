@@ -33,7 +33,7 @@ Inside this folder there are the c++ code files.
 
 1. [**position_service.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/ros2/src/position_service.cpp): this is a service server node that given as a request a minimum and a maximum value of x and y coordinate both return as response a random value for x, y and theta.
 .
-2. [**state_machine.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/ros2/src/state_machine.cpp): the state machine is a service server that can be activated or deactivated managing a boolean variable *start* set as request by the **user_interface.cpp** node. The node is a service client of the **/position_server** and of **/go_to_point**. It asks for a random position and if it is activated it set the response values as **/go_to_point** request. 
+2. [**state_machine.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/ros2/src/state_machine.cpp): the state machine is a service server that can be activated or deactivated managing a boolean variable *start* set as request by the [**user_interface.py**](https://github.com/AliceNardelli/rt2_assignment1/blob/main/scripts/user_interface.py) node. The node is a service client of the **/position_server** and of **/go_to_point**. It asks for a random position and if it is activated it sets the response values as **/go_to_point** request. 
 
 
 ### mapping_rule.yaml
