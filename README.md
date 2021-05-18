@@ -24,22 +24,24 @@ The two service messages are defined as in branch main
 2. [**Command**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/srv/Command.srv)
 
 ### Urdf folder
+
 It contains the description of the world and of the robot.
 
 ### launch folder
+
 It contains the launch file to launch [**sim.launch**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/launch/sim.launch) the overall simulation.
 
 ### src folder
 
 Inside this folder there are the c++ code files.
 
-1.[**position_service.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/position_service.cpp): the implementation of this node is the same of the of the one in the main branch
+1. [**position_service.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/position_service.cpp): the implementation of this node is the same of the of the one in the main branch
 .
-2.[**state_machine.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/state_machine.cpp): the structure of the code of this node has been maintained the same of the one in the branch main. The only difference is that instead of a service client of */go_to_point* here has been implemented a action client of */go_to_point*. It send a goal position to the action server and wait since robot reaches this position.
+2. [**state_machine.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/state_machine.cpp): the structure of the code of this node has been maintained the same of the one in the branch main. The only difference is that instead of a service client of */go_to_point* here has been implemented a action client of */go_to_point*. It send a goal position to the action server and wait since robot reaches this position.
 
 ## scripts folder
 
-1. [**go_to_point.py**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/scripts/go_to_point.py): this is a action server node that implement the reach a point behaviour. The node has been structured a class and the server is an object of the class GoalReachingAction. Inside the constructor of the class the action server is defined. I would like to emphasize the role of the callback of the action server. As the fact that it implements the machine state of this node and control the overall behaviour when robot is moving. In particular through the structure of the action it is possible to continuosly publish as feedback the actual position of the robot.
+1. [**go_to_point.py**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/scripts/go_to_point.py): this is an action server node that implements the reaching point behaviour. The node has been structured as a class and the server is an object of the class ActionController. Inside the constructor of the class the action server is defined. I would like to emphasize the role of the callback of the action server. As the fact that it implements the machine state of this node and control the overall behaviour when robot is moving. In particular through the structure of the action it is possible to continuosly publish as feedback the actual position of the robot.
 
 2. [**user_interface.py**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/scripts/user_interface.py): this node implements the user interface, the only difference with the main is that there is defined an action client of GoalReachingAction in such a way to cancel the goal if the user press 0 even if the goal has not been already reached. When the action is canceled the robot is stop instantanously through a Twist message.
 
