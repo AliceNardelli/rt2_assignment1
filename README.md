@@ -3,7 +3,7 @@
 
 # Packages needed
 
-In this part of the assignment in order to create a bridge between ROS and ROS2 and make nodes communicates (ros1_bridge)[https://github.com/ros2/ros1_bridge] package is required.
+In this part of the assignment in order to create a bridge between ROS and ROS2 and make nodes communicates [ros1_bridge](https://github.com/ros2/ros1_bridge) package is required.
 
 
 ## Behaviour of the software architecture
@@ -47,6 +47,7 @@ It is a file containing the mapping rule used to compile the bridge.
 2. execute
  
    ```
+   
      ./all_simulation.sh
 
    ```
@@ -56,21 +57,24 @@ alternatively
 1. inside a ROS terminal run :
 
    ```
+   
      roslaunch rt2_assignment1 sim2.launch
      
    ```
 2. inside a ROS12 terminal run :
 
-  ```
+   ```
+   
      ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
      
-  ```
+   ```
 3. inside a ROS2 terminal run :
 
-  ```
+   ```
+   
      ros2 launch rt2_assignment1 all_launch.py
      
-  ```
+   ```
    
 
    
