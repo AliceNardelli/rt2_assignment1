@@ -4,15 +4,15 @@
 
 ## Behaviour of the software architecture
 
-When the simulation start the user can insert 1 to make the robot start. The robot continuosly reaches random generated poses since the user presses 0. When this happens the robot firstly reach the last generated random pose then it stops.
+When the simulation start the user can insert 1 to make the robot start. The robot continuosly reaches random generated poses since the user presses 0. When this happens the robot firstly reaches the last generated random pose then it stops.
 
 
-### Srv folder
+### srv folder
 
 It contains three custome services:
-1. **RandomPosition** returns as reply two random x and y coordinates given as request the maximum and minimum value for each one.
-2. **Command** it takes a string as request and return a boolean as reply.
-3. **Position** it takes as input a position to reach and as output a boolean.
+1. **RandomPosition**: it returns as reply two random x and y coordinates given as request the maximum and minimum value for each one.
+2. **Command**: it takes a string as request and return a boolean as reply.
+3. **Position**: it takes as input a position to reach and as output a boolean.
 
 
 ### Urdf folder
@@ -44,7 +44,7 @@ Inside this folder there are python code files.
 
 ## Packages needed
 
-In order to generate Coppeliasim scene and make it integrated with ROS [Coppeliasim](https://www.coppeliarobotics.com), [SimExtROS](https://github.com/CoppeliaRobotics/simExtROS) and (ros1_bridge)[https://github.com/ros2/ros1_bridge] packages has been used.
+In order to generate Coppeliasim scene and make it integrated with ROS [Coppeliasim](https://www.coppeliarobotics.com), [SimExtROS](https://github.com/CoppeliaRobotics/simExtROS) and [ros1_bridge](https://github.com/ros2/ros1_bridge) packages has been used.
 
 
 ## VRep scene
@@ -56,6 +56,7 @@ The file **sceneVrep.ttt** contains the scene to upload on CoppeliaSim. A pionee
 1. Open Coppeliasim in a sourced ROS terminal.
 2. Load the scene on CoppeliaSim.
 3. Launch on another terminal:
+
    ```
        roslaunch rt2_assignment1 simVrep.launch
    ```
