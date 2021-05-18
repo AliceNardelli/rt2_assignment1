@@ -44,28 +44,33 @@ It is a file containing the mapping rule used to compile the bridge.
 ## How to run the scene.
 
 1. Go inside a folder where the file to source ROS, ROS2 and the bridge are contained
-2. execute 
-'''
+2. execute
+ 
+```
 ./all_simulation.sh
-'''
+
+```
 
 alternatively
 
 1. inside a ROS terminal run :
-   '''
+
+   ```
      roslaunch rt2_assignment1 sim2.launch
      
-   '''
+   ```
 2. inside a ROS12 terminal run :
-   '''
+
+  ```
      ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
      
-   '''
+   ```
 3. inside a ROS2 terminal run :
-   '''
+
+  ```
      ros2 launch rt2_assignment1 all_launch.py
      
-   '''
+  ```
    
 
    
