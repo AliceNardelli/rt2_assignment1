@@ -226,7 +226,7 @@ class ActionController(object):
         pub_.publish(twist_msg)
         self._res.ok = True
         rospy.loginfo(' Succeeded in reaching the desired Position! ')
-
+        self._as.set_succeeded(self._res)
 ## Documentation for the main function.
 #
 #  More details.
