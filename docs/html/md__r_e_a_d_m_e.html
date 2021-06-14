@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>rt2_assignment1: First Assignment of Research Trach 2 course - action branch</title>
+<title>rt2_assignment1: Sphinx branch</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,54 +63,11 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">First Assignment of Research Trach 2 course - action branch </div>  </div>
+<div class="title">Sphinx branch </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
-List of required packages</h1>
-<p><a href="http://wiki.ros.org/actionlib">Actionlib</a> is a package that allows to implements an action server. Action differently to service aren't instantaneous but that have a duration in time. Action client has the possibility to get some feedback when action is happening and cancel the action before the conclusion if needed. The action is defined as a file *.action* inside a folder <em>Action</em> contained in the package.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
-System description</h1>
-<p>The overall behaviour of the system is the same of the main branch. The main difference of this branch is that <b><a class="el" href="namespacego__to__point.html">go_to_point</a></b> node has been implemented as an action server whereas the <b>state_machine</b> and <b><a class="el" href="namespaceuser__interface.html">user_interface</a></b> are action clients.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Action folder</h2>
-<p>It contains the definition of the implented action. The goal is the position that robot has to reach, the result is a boolean variable whereas the the feedback is the actual position of the robot.</p>
-<ol type="1">
-<li><a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/action/GoalReaching.action"><b>GoalReaching</b></a></li>
-</ol>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Srv folder</h2>
-<p>The two service messages are defined as in branch main</p>
-<ol type="1">
-<li><a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/srv/RandomPosition.srv"><b>RandomPosition</b></a></li>
-<li><a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/srv/Command.srv"><b>Command</b></a></li>
-</ol>
-<h2><a class="anchor" id="autotoc_md5"></a>
-Urdf folder</h2>
-<p>It contains the description of the world and of the robot.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
-launch folder</h2>
-<p>It contains the launch file to launch <a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/launch/sim.launch"><b>sim.launch</b></a> the overall simulation.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-src folder</h2>
-<p>Inside this folder there are the c++ code files.</p>
-<ol type="1">
-<li><a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/position_service.cpp"><b>position_service.cpp</b></a>: the implementation of this node is the same of the of the one in the main branch</li>
-</ol>
-<ol type="1">
-<li><a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/state_machine.cpp"><b>state_machine.cpp</b></a>: the structure of the code of this node has been maintained the same of the one in the branch main. The only difference is that instead of a service client of */go_to_point* here has been implemented a action client of */go_to_point*. It send a goal position to the action server and wait since robot reaches this position.</li>
-</ol>
-<h1><a class="anchor" id="autotoc_md8"></a>
-scripts folder</h1>
-<ol type="1">
-<li><a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/scripts/go_to_point.py"><b>go_to_point.py</b></a>: this is an action server node that implements the reaching point behaviour. The node has been structured as a class and the server is an object of the class ActionController. Inside the constructor of the class the action server is defined. I would like to emphasize the role of the callback of the action server. As the fact that it implements the machine state of this node and control the overall behaviour when robot is moving. In particular through the structure of the action it is possible to continuosly publish as feedback the actual position of the robot.</li>
-<li><a href="https://github.com/AliceNardelli/rt2_assignment1/blob/action/scripts/user_interface.py"><b>user_interface.py</b></a>: this node implements the user interface, the only difference with the main is that there is defined an action client of GoalReachingAction in such a way to cancel the goal if the user press 0 even if the goal has not been already reached. When the action is canceled the robot is stop instantanously through a Twist message.</li>
-</ol>
-<h1><a class="anchor" id="autotoc_md9"></a>
-How to run the code</h1>
-<p>To run the code is necessary to run this line of code:</p>
-<div class="fragment"><div class="line">roslaunch rt2_assignment1 sim.launch</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+<div class="textblock"><p>Inside this branches in the folder <b>notebook</b> is present the jupiter notebook <b>User_Interface</b> requested for the assignment2. The instruction to run the node are contained inside the notebook. The sphinx documentation generated is inside the package **_build** in the <b>index.html</b> file. The doxygen documentation has been generated inside the branch action of the first assignment of the course. It is possible to find that inside the <b>docs</b> folder. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
