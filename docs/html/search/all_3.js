@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['dist_5fprecision_5f_5',['dist_precision_',['../namespacego__to__point.html#a6a1e4eb20ebd4fce0fc56b0ebfd7a8d5',1,'go_to_point']]],
-  ['done_6',['done',['../namespacego__to__point.html#ad537df6ce92476d81b2de4048ea1732f',1,'go_to_point']]]
+  ['execute_5fcb',['execute_cb',['../namespacego__to__point.html#a1d2c03bc184771298197eab5e767d6ea',1,'go_to_point']]]
 ];

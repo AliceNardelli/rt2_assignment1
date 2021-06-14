@@ -1,3 +1,44 @@
+/** @package rt2_assignment1
+* 
+* @file state_machine.cpp
+* @brief Node describing the state machine implementation 
+* @author Alice Nardelli
+
+* @version 0.1
+* @date 13/06/2021
+*
+*
+*
+* @details 
+*
+* Subscribes to: <BR>
+*    None
+* 
+* Publishes to: <BR>
+*    None
+* 
+* Client: <BR>
+*    /position_server
+* 	
+* 
+* Actiom Client: <BR>
+*    /go_to_point
+*
+* Services: <BR>
+*  /user_interface
+*
+* Description: <BR>
+*
+* By means of an user interface, the user is able of making the robot starts 
+* by entering the 1 integer value, the robot starts moving. There is one boolean 
+* value which becomes true and then call the \verbatim position_service.cpp  \endverbatim
+* which retrieves the random goal position to reach from the RandomPosition.srv custom 
+* service, sends the random position as the action server goal, waits for the robot 
+* to reach the designated position
+*
+*/
+
+
 #include "ros/ros.h"
 #include "rt2_assignment1/Command.h"
 #include "rt2_assignment1/RandomPosition.h"
@@ -8,19 +49,26 @@
 bool start = false;
 
 /**
- *@brief This function is the callback function of the service server /user_interface.
+ *@brief This function is the callback function of the service for server.
  *@param req  the request received from the client of the user_interface.py. 
- *@param res  the response (None)
+ *@param res  the response has not been used 
+ * 
  *@retval A boolean value
+ * 
+ * This function allows to initialize the global variable *"start"* to true
+ * wether the command received consists in a "start" string. Otherwise, it is
+ * initialized as *"false"*
+ * 
  */
 
 bool user_interface(rt2_assignment1::Command::Request &req, rt2_assignment1::Command::Response &res){
-   /* If the user wants to start robot behaviour the command field of the request is set "start" */
+   /* if the user has entered 1, then the request of the command custom service  is a string, 
+      initialised as "start" */
     if (req.command == "start"){
       /* the global boolean start is set to True*/
     	start = true;
     }
-    /* else if the user wants to stop robot*/  
+    /* else if the user has entered 0*/  
     else {
       /* the global boolean start is set to False*/ 
     	start = false;
@@ -28,6 +76,26 @@ bool user_interface(rt2_assignment1::Command::Request &req, rt2_assignment1::Com
     return true;
 }
 
+/**
+ * @brief The main function
+ * 
+ * @retval 0
+ * 
+ * This function implements:
+ * -# the state_machine node
+ * -# the service
+ * -# the client
+ * -# the action client
+ * -# the two custom messages RandomPosition and GoalReachingGoal
+ * If start var is set to "true", then we call the RandomPosition service
+ * and we wait for the action server to start. Once started, the goal fields
+ * are populated with the retrieved random values. Then, the goal is sent 
+ * to the action server. Then a check over the robot achievement within a specifed 
+ * time interval has been configured.
+ * 
+ *
+ * 
+ */
 
 int main(int argc, char **argv)
 {
@@ -48,7 +116,6 @@ int main(int argc, char **argv)
    rt2_assignment1::GoalReachingGoal goal;
    
    /* filling the custom message request fields */
-   /*they are the limit of the x and y coordinates*/
    rp.request.x_max = 5.0;
    rp.request.x_min = -5.0;
    rp.request.y_max = 5.0;
@@ -57,14 +124,14 @@ int main(int argc, char **argv)
    
    while(ros::ok()){
    	ros::spinOnce();
-      /* if start=True the robot starts reaching the goal*/ 
+      /* if start var is True*/ 
    	if (start){
-         /* call for the service /position_server to retrieve a random position */
+         /* call for the Service random position */
    		client_rp.call(rp);
-   		//ROS_INFO("Waiting for action server to start.");
+   		ROS_INFO("Waiting for action server to start.");
   		/* wait for the action server to start*/
-  		ac.waitForServer(); 
-         /* initialising goal's fields with retrieved random values */
+  		ac.waitForServer(); // will wait for infinite time
+      /* initialising goal's fields with retrieved random values */
   		goal.x = rp.response.x;
   		goal.y = rp.response.y;
   		goal.theta = rp.response.theta;
@@ -75,15 +142,14 @@ int main(int argc, char **argv)
 		/* wait for the action to return until the robot reach the desired postion */
  		bool finished_before_timeout = ac.waitForResult(ros::Duration(120.0));
 		
-               /*if the timeout expires the goal is canceled*/
+      
 		if (finished_before_timeout)
 		{
 		   ROS_INFO("Postion reacheded ");
-		   
 		}
 		else
 		   ROS_INFO("Action did not finish before the time out.");
-   		   
+   		
    	}
    }
    return 0;

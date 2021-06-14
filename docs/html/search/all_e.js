@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['ub_5fa_28',['ub_a',['../namespacego__to__point.html#acb4e14986fafe5cb73bb8ad0c178869d',1,'go_to_point']]],
-  ['ub_5fd_29',['ub_d',['../namespacego__to__point.html#a16c473b9e717200c483d18e66b48152a',1,'go_to_point']]],
-  ['user_5finterface_30',['user_interface',['../namespaceuser__interface.html',1,'user_interface'],['../state__machine_8cpp.html#a1a9543636935547580c0657f4c7c0c2b',1,'user_interface(rt2_assignment1::Command::Request &amp;req, rt2_assignment1::Command::Response &amp;res):&#160;state_machine.cpp']]],
-  ['user_5finterface_2epy_31',['user_interface.py',['../user__interface_8py.html',1,'']]]
+  ['yaw_5f',['yaw_',['../namespacego__to__point.html#ae444f19eb2019982432760ace036ce03',1,'go_to_point']]],
+  ['yaw_5fprecision_5f',['yaw_precision_',['../namespacego__to__point.html#a67f95834f0959feb3facd17bc7fa2b38',1,'go_to_point']]],
+  ['yaw_5fprecision_5f2_5f',['yaw_precision_2_',['../namespacego__to__point.html#af74ccf49164d0478ca8343e2031d5813',1,'go_to_point']]]
 ];

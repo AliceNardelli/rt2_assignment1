@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">#<sp/>First<sp/>Assignment<sp/>of<sp/>Research<sp/>Trach<sp/>2<sp/>course<sp/>-<sp/>action<sp/>branch</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>List<sp/>of<sp/>required<sp/>packages</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[Actionlib](http://wiki.ros.org/actionlib)<sp/>is<sp/>a<sp/>package<sp/>that<sp/>allows<sp/>to<sp/>implements<sp/>an<sp/>action<sp/>server.<sp/>Action<sp/>differently<sp/>to<sp/>service<sp/>aren&apos;t<sp/>instantaneous<sp/>but<sp/>that<sp/>have<sp/>a<sp/>duration<sp/>in<sp/>time.<sp/>Action<sp/>client<sp/>has<sp/>the<sp/>possibility<sp/>to<sp/>get<sp/>some<sp/>feedback<sp/>when<sp/>action<sp/>is<sp/>happening<sp/>and<sp/>cancel<sp/>the<sp/>action<sp/>before<sp/>the<sp/>conclusion<sp/>if<sp/>needed.<sp/>The<sp/>action<sp/>is<sp/>defined<sp/>as<sp/>a<sp/>file<sp/>*.action*<sp/>inside<sp/>a<sp/>folder<sp/>*Action*<sp/>contained<sp/>in<sp/>the<sp/>package.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>System<sp/>description</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>overall<sp/>behaviour<sp/>of<sp/>the<sp/>system<sp/>is<sp/>the<sp/>same<sp/>of<sp/>the<sp/>main<sp/>branch.<sp/>The<sp/>main<sp/>difference<sp/>of<sp/>this<sp/>branch<sp/>is<sp/>that<sp/>**go_to_point**<sp/>node<sp/>has<sp/>been<sp/>implemented<sp/>as<sp/>an<sp/>action<sp/>server<sp/>whereas<sp/>the<sp/>**state_machine**<sp/><sp/>and<sp/>**user_interface**<sp/>are<sp/>action<sp/>clients.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Action<sp/>folder</highlight></codeline>
+<codeline><highlight class="normal">It<sp/>contains<sp/>the<sp/>definition<sp/>of<sp/>the<sp/>implented<sp/>action.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>goal<sp/>is<sp/>the<sp/>position<sp/>that<sp/>robot<sp/>has<sp/>to<sp/>reach,<sp/>the<sp/>result<sp/>is<sp/>a<sp/>boolean<sp/>variable<sp/>whereas<sp/>the<sp/>the<sp/>feedback<sp/>is<sp/>the<sp/>actual<sp/>position<sp/>of<sp/>the<sp/>robot.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[**GoalReaching**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/action/GoalReaching.action)<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Srv<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>two<sp/>service<sp/>messages<sp/>are<sp/>defined<sp/>as<sp/>in<sp/>branch<sp/>main</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[**RandomPosition**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/srv/RandomPosition.srv)<sp/></highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[**Command**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/srv/Command.srv)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Urdf<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It<sp/>contains<sp/>the<sp/>description<sp/>of<sp/>the<sp/>world<sp/>and<sp/>of<sp/>the<sp/>robot.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>launch<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It<sp/>contains<sp/>the<sp/>launch<sp/>file<sp/>to<sp/>launch<sp/>[**sim.launch**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/launch/sim.launch)<sp/>the<sp/>overall<sp/>simulation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>src<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Inside<sp/>this<sp/>folder<sp/>there<sp/>are<sp/>the<sp/>c++<sp/>code<sp/>files.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[**position_service.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/position_service.cpp):<sp/>the<sp/>implementation<sp/>of<sp/>this<sp/>node<sp/>is<sp/>the<sp/>same<sp/>of<sp/>the<sp/>of<sp/>the<sp/>one<sp/>in<sp/>the<sp/>main<sp/>branch</highlight></codeline>
+<codeline><highlight class="normal">.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[**state_machine.cpp**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/src/state_machine.cpp):<sp/>the<sp/>structure<sp/>of<sp/>the<sp/>code<sp/>of<sp/>this<sp/>node<sp/>has<sp/>been<sp/>maintained<sp/>the<sp/>same<sp/>of<sp/>the<sp/>one<sp/>in<sp/>the<sp/>branch<sp/>main.<sp/>The<sp/>only<sp/>difference<sp/>is<sp/>that<sp/>instead<sp/>of<sp/>a<sp/>service<sp/>client<sp/>of<sp/>*/go_to_point*<sp/>here<sp/>has<sp/>been<sp/>implemented<sp/>a<sp/>action<sp/>client<sp/>of<sp/>*/go_to_point*.<sp/>It<sp/>send<sp/>a<sp/>goal<sp/>position<sp/>to<sp/>the<sp/>action<sp/>server<sp/>and<sp/>wait<sp/>since<sp/>robot<sp/>reaches<sp/>this<sp/>position.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>scripts<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[**go_to_point.py**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/scripts/go_to_point.py):<sp/>this<sp/>is<sp/>an<sp/>action<sp/>server<sp/>node<sp/>that<sp/>implements<sp/>the<sp/>reaching<sp/>point<sp/>behaviour.<sp/>The<sp/>node<sp/>has<sp/>been<sp/>structured<sp/>as<sp/>a<sp/>class<sp/>and<sp/>the<sp/>server<sp/>is<sp/>an<sp/>object<sp/>of<sp/>the<sp/>class<sp/>ActionController.<sp/>Inside<sp/>the<sp/>constructor<sp/>of<sp/>the<sp/>class<sp/>the<sp/>action<sp/>server<sp/>is<sp/>defined.<sp/>I<sp/>would<sp/>like<sp/>to<sp/>emphasize<sp/>the<sp/>role<sp/>of<sp/>the<sp/>callback<sp/>of<sp/>the<sp/>action<sp/>server.<sp/>As<sp/>the<sp/>fact<sp/>that<sp/>it<sp/>implements<sp/>the<sp/>machine<sp/>state<sp/>of<sp/>this<sp/>node<sp/>and<sp/>control<sp/>the<sp/>overall<sp/>behaviour<sp/>when<sp/>robot<sp/>is<sp/>moving.<sp/>In<sp/>particular<sp/>through<sp/>the<sp/>structure<sp/>of<sp/>the<sp/>action<sp/>it<sp/>is<sp/>possible<sp/>to<sp/>continuosly<sp/>publish<sp/>as<sp/>feedback<sp/>the<sp/>actual<sp/>position<sp/>of<sp/>the<sp/>robot.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>[**user_interface.py**](https://github.com/AliceNardelli/rt2_assignment1/blob/action/scripts/user_interface.py):<sp/>this<sp/>node<sp/>implements<sp/>the<sp/>user<sp/>interface,<sp/>the<sp/>only<sp/>difference<sp/>with<sp/>the<sp/>main<sp/>is<sp/>that<sp/>there<sp/>is<sp/>defined<sp/>an<sp/>action<sp/>client<sp/>of<sp/>GoalReachingAction<sp/>in<sp/>such<sp/>a<sp/>way<sp/>to<sp/>cancel<sp/>the<sp/>goal<sp/>if<sp/>the<sp/>user<sp/>press<sp/>0<sp/>even<sp/>if<sp/>the<sp/>goal<sp/>has<sp/>not<sp/>been<sp/>already<sp/>reached.<sp/>When<sp/>the<sp/>action<sp/>is<sp/>canceled<sp/>the<sp/>robot<sp/>is<sp/>stop<sp/>instantanously<sp/>through<sp/>a<sp/>Twist<sp/>message.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>to<sp/>run<sp/>the<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>run<sp/>the<sp/>code<sp/>is<sp/>necessary<sp/>to<sp/>run<sp/>this<sp/>line<sp/>of<sp/>code:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">roslaunch<sp/>rt2_assignment1<sp/>sim.launch</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>
